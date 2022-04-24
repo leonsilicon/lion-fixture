@@ -1,5 +1,7 @@
 # lion-fixture
 
+[![npm version](https://img.shields.io/npm/v/lion-fixture)](https://npmjs.com/package/lion-fixture)
+
 A fixture function for tests.
 
 ## Installation
