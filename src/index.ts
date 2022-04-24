@@ -1,2 +1,2 @@
-export { fixturer } from './utils/fixture.js';
-export type { FixturerOptions } from './types.js';
+export type { LionFixtureOptions } from './types.js';
+export { lionFixture } from './utils/fixture.js';
