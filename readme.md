@@ -55,7 +55,13 @@ Required: `true`
 
 Creates a new fixture creator.
 
-#### FixturesCreators.fixture(fixtureName, tempFixtureDir?)
+#### FixtureCreators
+
+An object with functions to clone the fixtures into a temporary directory.
+
+Type: `{ fixture: Function, fixtureSync: Function }`
+
+##### FixturesCreators.fixture(fixtureName, tempFixtureDir?)
 
 Clones the fixture at `` `${fixturesDir}/${fixtureName}` `` into `` `${tempDir}/${tempFixtureDir}` `` and runs `pnpm install` in the temporary directory.
 
@@ -63,7 +69,7 @@ Returns: `Promise<string>`
 
 The path to the temporary folder where the fixture was cloned.
 
-#### fixtureName
+###### fixtureName
 
 Type: `string`
 \
@@ -71,7 +77,7 @@ Required: `true`
 
 The name of the fixture to clone into the temporary directory.
 
-#### tempFixtureDir
+###### tempFixtureDir
 
 Type: `string`
 \
@@ -79,7 +85,7 @@ Default: `fixtureName`
 
 The name of the cloned fixture folder created in the temporary directory.
 
-#### FixturesCreators.fixtureSync(fixtureName, tempFixtureDir?)
+##### FixturesCreators.fixtureSync(fixtureName, tempFixtureDir?)
 
 Returns: `string`
 
