@@ -1,0 +1,14 @@
+lockfileVersion: 5.3
+
+specifiers:
+  array-uniq: ^3.0.0
+
+dependencies:
+  array-uniq: 3.0.0
+
+packages:
+
+  /array-uniq/3.0.0:
+    resolution: {integrity: sha512-T/3qyw9JTDHjj+aIo4uQyHCAoG1DkFqFViq0e6uPzkXwT74MEPsmQ30rxx8x9+yjBQ3KJ2bXOb2bBKC1FwEjdw==}
+    engines: {node: '>=12'}
+    dev: false

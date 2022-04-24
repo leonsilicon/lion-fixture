@@ -15,22 +15,33 @@ beforeAll(() => {
 	fs.rmSync(tempDir, { recursive: true, force: true });
 });
 
-test('creates a fixture asynchronously', () => {
-	const tempFixturesDir = fixtureSync('my-project', 'my-project-sync');
+test('creates a fixture synchronously', () => {
+	const tempMyProjectSyncDir = fixtureSync('my-project', 'my-project-sync');
 
 	expect(
 		execaCommandSync('node index.js', {
-			cwd: tempFixturesDir,
+			cwd: tempMyProjectSyncDir,
 		}).stdout
 	).toEqual('1,2');
 });
 
 test('creates a fixture asynchronously', async () => {
-	const tempFixturesDir = await fixture('my-project');
+	const tempMyProjectDir = await fixture('my-project');
 
 	expect(
 		execaCommandSync('node index.js', {
-			cwd: tempFixturesDir,
+			cwd: tempMyProjectDir,
+		}).stdout
+	).toEqual('1,2');
+});
+
+test('default options', () => {
+	const { fixtureSync } = lionFixture(import.meta.url);
+
+	const tempFixtureDefaultDir = fixtureSync('my-project', 'my-project-default');
+	expect(
+		execaCommandSync('node index.js', {
+			cwd: tempFixtureDefaultDir,
 		}).stdout
 	).toEqual('1,2');
 });

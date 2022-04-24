@@ -5,7 +5,22 @@ import { fileURLToPath } from 'node:url';
 
 import type { LionFixtureOptions } from '~/types.js';
 
-export function lionFixture({ fixturesDir, tempDir }: LionFixtureOptions) {
+export function lionFixture(options: LionFixtureOptions) {
+	let fixturesDir: string;
+	let tempDir: string;
+	if (typeof options === 'string') {
+		let fileUrl = options;
+		if (fileUrl.startsWith('file://')) {
+			fileUrl = fileURLToPath(fileUrl);
+		}
+
+		fixturesDir = path.join(path.dirname(fileUrl), '../fixtures');
+		tempDir = path.join(path.dirname(fileUrl), '../temp');
+	} else {
+		fixturesDir = options.fixturesDir;
+		tempDir = options.tempDir;
+	}
+
 	async function fixture(
 		fixtureName: string,
 		tempFixtureName?: string
