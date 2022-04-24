@@ -57,7 +57,7 @@ Creates a new fixture creator.
 
 #### FixturesCreators.fixture(fixtureName, tempFixtureDir?)
 
-Clones the fixture at ``\`${fixturesDir}/${fixtureName}\`` into ``\`${tempDir}/${tempFixtureDir}\`` and runs `pnpm install` in the temporary directory.
+Clones the fixture at ``${fixturesDir}/${fixtureName}`` into ``${tempDir}/${tempFixtureDir}`` and runs `pnpm install` in the temporary directory.
 
 Returns: `Promise<string>`
 
