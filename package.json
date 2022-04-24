@@ -1,0 +1,37 @@
+{
+	"name": "lion-fixture",
+	"version": "0.0.0",
+	"description": "Fixture function for tests.",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/leonzalion/lion-fixture.git"
+	},
+	"homepage": "https://github.com/leonzalion/lion-fixture#readme",
+	"author": {
+		"name": "Leon Si",
+		"email": "contact@leonzalion.com",
+		"url": "https://leonzalion.com"
+	},
+	"type": "module",
+	"exports": "./src/index.ts",
+	"scripts": {
+		"prepare": "lion-git-hooks",
+		"build": "node-ts ./scripts/build.ts",
+		"start": "node-ts ./src/index.ts",
+		"test": "vitest run",
+		"lint": "eslint --cache --fix .",
+		"prettier": "prettier --write .",
+		"tc": "tsc --noEmit"
+	},
+	"devDependencies": {
+		"@leonzalion/configs": "latest",
+		"@types/node": "latest",
+		"desm": "latest",
+		"eslint-define-config": "latest",
+		"execa": "latest",
+		"lion-system": "latest",
+		"typescript": "latest",
+		"vitest": "latest"
+	}
+}
