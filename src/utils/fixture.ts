@@ -52,5 +52,5 @@ export function lionFixture(options: LionFixtureOptions) {
 		return tempFixtureDir;
 	}
 
-	return { fixture, fixtureSync };
+	return { fixture, fixtureSync, tempDir, fixturesDir };
 }

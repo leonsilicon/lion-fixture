@@ -21,7 +21,7 @@ import * as fs from 'node:fs';
 
 const tempDir = join(import.meta.url, '../temp'); // or `path.join(__dirname, '../temp')` for CommonJS
 
-const fixture = lionFixture({
+const { fixture } = lionFixture({
   fixturesDir: join(import.meta.url, '../fixtures'),
   tempDir,
 });
@@ -41,6 +41,8 @@ test('creates fixtures', async () => {
 
 ### lionFixture(options): FixtureCreators
 
+Returns functions for easily creating clones of fixtures.
+
 #### options.fixturesDir
 
 Type: `string`
@@ -55,13 +57,13 @@ Type: `string`
 \
 Required: `true`
 
-Creates a new fixture creator.
+The temporary folder where the fixtures are cloned to.
 
 #### FixtureCreators
 
 An object with functions to clone the fixtures into a temporary directory.
 
-Type: `{ fixture: Function, fixtureSync: Function }`
+Type: `{ fixture: Function, fixtureSync: Function, tempDir: string, fixturesDir: string }`
 
 ##### fixture(fixtureName, tempFixtureDir?)
 
@@ -92,3 +94,15 @@ The name of the cloned fixture folder created in the temporary directory.
 Returns: `string`
 
 Creates a clone of the fixture synchronously. Uses the same API as `FixtureCreators.fixture`.
+
+##### tempDir
+
+Type: `string`
+
+The temporary folder where the fixtures are cloned to.
+
+##### fixturesDir
+
+Type: `string`
+
+The path to the directory where the fixture folders are.
