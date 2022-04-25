@@ -3,7 +3,7 @@ import { execaCommandSync } from 'execa';
 import * as fs from 'node:fs';
 import { beforeAll, expect, test } from 'vitest';
 
-import { lionFixture } from '~/index.js';
+import lionFixture from '~/index.js';
 
 const tempDir = join(import.meta.url, '../temp');
 const { fixture, fixtureSync } = lionFixture({

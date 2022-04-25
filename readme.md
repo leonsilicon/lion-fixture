@@ -14,7 +14,7 @@ npm install lion-fixture
 
 ```typescript
 import { join } from 'desm';
-import { fixturer } from 'lion-fixture';
+import lionFixture from 'lion-fixture';
 import { expect, test } from 'vitest';
 import * as path from 'node:path';
 import * as fs from 'node:fs';

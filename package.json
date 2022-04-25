@@ -1,7 +1,7 @@
 {
 	"name": "lion-fixture",
 	"version": "1.0.0",
-	"description": "Fixture function for tests.",
+	"description": "An easy-to-use fixture function for tests.",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
@@ -40,5 +40,17 @@
 	},
 	"publishConfig": {
 		"directory": "dist"
-	}
+	},
+	"keywords": [
+		"jest",
+		"mocha",
+		"test",
+		"ava",
+		"fixture",
+		"unit",
+		"uvu",
+		"folder",
+		"temp",
+		"e2e"
+	]
 }
