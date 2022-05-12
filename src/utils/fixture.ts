@@ -32,6 +32,12 @@ export function lionFixture(options: LionFixtureOptions) {
 		await fs.promises.mkdir(tempDir, { recursive: true });
 		const originalFixtureDir = path.join(fixturesDir, fixtureName);
 		const tempFixtureDir = path.join(tempDir, tempFixtureName ?? fixtureName);
+
+		// Remove the temporary fixture directory if it already exists
+		if (fs.existsSync(tempFixtureDir)) {
+			await fs.promises.rm(tempFixtureDir);
+		}
+
 		await fs.promises.cp(originalFixtureDir, tempFixtureDir, {
 			recursive: true,
 		});
