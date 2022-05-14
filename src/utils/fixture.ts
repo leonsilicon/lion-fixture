@@ -41,7 +41,7 @@ export function lionFixture(options: LionFixtureOptions) {
 		await fs.promises.cp(originalFixtureDir, tempFixtureDir, {
 			recursive: true,
 		});
-		await execa('pnpm', ['install'], { cwd: tempFixtureDir });
+		await execa('pnpm', ['install', '--filter', '.'], { cwd: tempFixtureDir });
 		return tempFixtureDir;
 	}
 
