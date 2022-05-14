@@ -35,7 +35,7 @@ export function lionFixture(options: LionFixtureOptions) {
 
 		// Remove the temporary fixture directory if it already exists
 		if (fs.existsSync(tempFixtureDir)) {
-			await fs.promises.rm(tempFixtureDir);
+			await fs.promises.rm(tempFixtureDir, { recursive: true, force: true });
 		}
 
 		await fs.promises.cp(originalFixtureDir, tempFixtureDir, {
