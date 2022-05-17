@@ -46,16 +46,18 @@ export function lionFixture(options) {
         await fs.promises.cp(originalFixtureDir, tempFixtureDir, {
             recursive: true,
         });
-        if (!fixtureOptions.runInstall &&
+        if (fixtureOptions.runInstall &&
             fs.existsSync(path.join(tempFixtureDir, 'package.json'))) {
             if (fixtureOptions.ignoreWorkspace) {
                 await execa('pnpm', ['--ignore-workspace', 'install'], {
                     cwd: tempFixtureDir,
+                    stdio: 'inherit'
                 });
             }
             else {
                 await execa('pnpm', ['install'], {
                     cwd: tempFixtureDir,
+                    stdio: 'inherit'
                 });
             }
         }

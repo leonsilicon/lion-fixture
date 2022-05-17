@@ -1,6 +1,7 @@
 import { join } from 'desm';
 import { execaCommandSync } from 'execa';
 import * as fs from 'node:fs';
+import * as path from 'node:path';
 import { beforeAll, expect, test } from 'vitest';
 
 import lionFixture from '~/index.js';
@@ -44,4 +45,15 @@ test('default options', () => {
 			cwd: tempFixtureDefaultDir,
 		}).stdout
 	).toEqual('1,2');
+});
+
+test('skips install when `runInstall` is false', () => {
+	const myProjectTempDir = fixtureSync(
+		'my-project',
+		'my-project-run-install-false',
+		{ runInstall: false }
+	);
+	expect(fs.existsSync(path.join(myProjectTempDir, 'node_modules'))).toBe(
+		false
+	);
 });
