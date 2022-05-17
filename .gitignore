@@ -1,6 +1,9 @@
 # macOS
 .DS_Store
 
+# Test fixtures
+temp
+
 # Logs
 logs
 *.log
@@ -127,8 +130,6 @@ tsconfig.tsbuildinfo
 
 # dist .gitkeep
 
-!dist
-dist/*
-!dist/.gitkeep
-temp
-
+!**/dist
+**/dist/*
+!**/dist/.gitkeep
