@@ -90,11 +90,12 @@ export function lionFixture(options: LionFixtureOptions) {
 		tempFixtureNameOrOptions?: string | CreateFixtureOptions,
 		maybeFixtureOptions?: CreateFixtureOptions
 	): Promise<string> {
-		const { fixtureOptions, tempFixtureName } = normalizeFixtureParams(
+		let { fixtureOptions, tempFixtureName } = normalizeFixtureParams(
 			fixtureName,
 			tempFixtureNameOrOptions,
 			maybeFixtureOptions
 		);
+
 		await fs.promises.mkdir(tempDir, { recursive: true });
 		const originalFixtureDir = path.join(fixturesDir, fixtureName);
 		const tempFixtureDir = path.join(tempDir, tempFixtureName);
@@ -105,6 +106,11 @@ export function lionFixture(options: LionFixtureOptions) {
 		await fs.promises.cp(originalFixtureDir, tempFixtureDir, {
 			recursive: true,
 		});
+
+		fixtureOptions = {
+			ignoreWorkspace: fs.existsSync(path.join(tempFixtureDir, 'pnpm-workspace.yaml')) ? false : true,
+			...fixtureOptions,
+		}
 
 		const installCommandArgs = getInstallCommandArgs({
 			fixtureOptions,
@@ -132,7 +138,7 @@ export function lionFixture(options: LionFixtureOptions) {
 		tempFixtureNameOrOptions?: string | CreateFixtureOptions,
 		maybeFixtureOptions?: CreateFixtureOptions
 	): string {
-		const { fixtureOptions, tempFixtureName } = normalizeFixtureParams(
+		let { fixtureOptions, tempFixtureName } = normalizeFixtureParams(
 			fixtureName,
 			tempFixtureNameOrOptions,
 			maybeFixtureOptions
@@ -146,6 +152,11 @@ export function lionFixture(options: LionFixtureOptions) {
 		}
 
 		fs.cpSync(originalFixtureDir, tempFixtureDir, { recursive: true });
+
+		fixtureOptions = {
+			ignoreWorkspace: fs.existsSync(path.join(tempFixtureDir, 'pnpm-workspace.yaml')) ? false : true,
+			...fixtureOptions,
+		}
 
 		const installCommandArgs = getInstallCommandArgs({
 			fixtureOptions,
