@@ -108,9 +108,11 @@ export function lionFixture(options: LionFixtureOptions) {
 		});
 
 		fixtureOptions = {
-			ignoreWorkspace: fs.existsSync(path.join(tempFixtureDir, 'pnpm-workspace.yaml')) ? false : true,
+			ignoreWorkspace: !fs.existsSync(
+				path.join(tempFixtureDir, 'pnpm-workspace.yaml')
+			),
 			...fixtureOptions,
-		}
+		};
 
 		const installCommandArgs = getInstallCommandArgs({
 			fixtureOptions,
@@ -154,9 +156,11 @@ export function lionFixture(options: LionFixtureOptions) {
 		fs.cpSync(originalFixtureDir, tempFixtureDir, { recursive: true });
 
 		fixtureOptions = {
-			ignoreWorkspace: fs.existsSync(path.join(tempFixtureDir, 'pnpm-workspace.yaml')) ? false : true,
+			ignoreWorkspace: !fs.existsSync(
+				path.join(tempFixtureDir, 'pnpm-workspace.yaml')
+			),
 			...fixtureOptions,
-		}
+		};
 
 		const installCommandArgs = getInstallCommandArgs({
 			fixtureOptions,

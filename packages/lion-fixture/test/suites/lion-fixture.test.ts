@@ -45,6 +45,11 @@ test('default options', () => {
 			cwd: tempFixtureDefaultDir,
 		}).stdout
 	).toEqual('1,2');
+
+	const myWorkspaceTempDir = fixtureSync('my-workspace');
+	expect(
+		fs.existsSync(path.join(myWorkspaceTempDir, 'subpackage1/node_modules'))
+	).toBe(true);
 });
 
 test('skips install when `runInstall` is false', () => {

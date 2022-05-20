@@ -1,0 +1,6 @@
+{
+	"name": "subpackage2",
+	"dependencies": {
+		"subpackage2": "workspace:*"
+	}
+}
